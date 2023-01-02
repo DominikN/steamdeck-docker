@@ -22,4 +22,28 @@ sudo chmod 755 /usr/local/lib/docker/cli-plugins/docker-compose
 # ssh server
 sudo systemctl enable sshd
 sudo systemctl start sshd
+
+# switching a session
+# steamos-session-select plasma
+# steamos-session-select gamescope
+```
+
+Make a desktop session persistent
+
+```
+sudo vim /etc/sddm.conf.d/zz-steamos-autologin.conf 
+```
+
+and replace
+
+```
+[Autologin]
+Session=plasma-steamos-oneshot.desktop
+```
+
+with
+
+```
+[Autologin]
+Session=plasma.desktop
 ```
