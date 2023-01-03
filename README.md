@@ -2,6 +2,8 @@
 
 Instructions &amp; scripts for steamdeck customization
 
+## install docker and enable ssh server
+
 ```bash
 # general 
 sudo steamos-readonly disable
@@ -28,7 +30,7 @@ sudo systemctl start sshd
 # steamos-session-select gamescope
 ```
 
-Make a desktop session persistent
+## make a desktop session persistent
 
 ```
 sudo vim /etc/sddm.conf.d/zz-steamos-autologin.conf 
@@ -46,4 +48,14 @@ with
 ```
 [Autologin]
 Session=plasma.desktop
+```
+
+## install husarnet
+
+```
+wget https://install.husarnet.com/tgz/husarnet-latest-amd64.tar
+sudo tar --directory=/ --no-same-owner --dereference -xf husarnet-latest-amd64.tar
+sudo systemctl enable husarnet
+sudo systemctl start husarnet
+sudo husarnet join 
 ```
